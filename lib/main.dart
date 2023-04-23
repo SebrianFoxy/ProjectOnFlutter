@@ -90,7 +90,7 @@ class _MyHomePageState extends State<MyHomePage> {
               style: Theme.of(context).textTheme.headlineMedium,
             ),
             Image.asset(AppAsset.profileImage, width: 500, height: 300),
-            const Icon(AppIcon.heart)
+            const Icon(AppIcon.heart, color: LightThemeColor.accent,)
           ],
         ),
       ),
