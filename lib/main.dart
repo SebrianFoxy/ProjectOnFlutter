@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:JapanEatProject/ui_kit/_ui_kit.dart';
+import 'package:JapanEatProject/ui/screens/food_list_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -12,9 +13,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Fishing',
-      theme: AppTheme.darkTheme,
-      home: const MyHomePage(title: 'Demo'),
+      title: 'JapanEat',
+      // theme: AppTheme.darkTheme,
+      home: FoodList(),
     );
   }
 }
@@ -63,7 +64,7 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         // Here we take the value from the MyHomePage object that was created by
         // the App.build method, and use it to set our appbar title.
-        title: Text(widget.title),
+        title: Text(widget.title)
       ),
       body: Center(
         // Center is a layout widget. It takes a single child and positions it
