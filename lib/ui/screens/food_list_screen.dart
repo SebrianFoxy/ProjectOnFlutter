@@ -33,6 +33,7 @@ class FoodListState extends State<FoodList> {
                 "Available for you",
                 style: Theme.of(context).textTheme.displaySmall,
               ),
+              _categories(),
               Padding(
                 padding: const EdgeInsets.only(top: 25, bottom: 5),
                 child: Row(
@@ -95,7 +96,7 @@ PreferredSizeWidget _appBar(BuildContext context) {
 }
 Widget _searchBar() {
   return const Padding(
-    padding: EdgeInsets.symmetric(vertical: 20, horizontal: 10),
+    padding: EdgeInsets.symmetric(vertical: 20, horizontal: 15),
     child: TextField(
       decoration: InputDecoration(
         hintText: 'Search food',
@@ -104,5 +105,43 @@ Widget _searchBar() {
     ),
   );
 }
+
+Widget _categories() {
+  return Padding(
+      padding: const EdgeInsets.only(top: 8.0),
+      child: SizedBox(
+        height: 40,
+        child: ListView.separated(
+            scrollDirection: Axis.horizontal,
+            itemBuilder: (_, index) {
+              return GestureDetector(
+                onTap: () {
+                  print('Кликнули на категорию');
+                },
+                child: Container(
+                  width: 100,
+                  alignment: Alignment.center,
+                  decoration: const BoxDecoration(
+                    color: LightThemeColor.accent,
+                    borderRadius: BorderRadius.all(
+                      Radius.circular(15),
+                    ),
+                  ),
+                  child: const Text(
+                    'Kebab',
+                    // style: Theme.of(context).textTheme.headlineMedium,
+                  ),
+                ),
+              );
+            },
+            separatorBuilder: (_, __) => Container(
+                  width: 15,
+                  height: 30,
+                ),
+            itemCount: 10),
+      ));
+}
+
+
 
 
