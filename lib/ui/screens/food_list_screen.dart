@@ -5,6 +5,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import '../../ui_kit/_ui_kit.dart';
 import '../../data/app_data.dart';
 import 'package:JapanEatProject/ui/extensions/app_extension.dart';
+import 'package:JapanEatProject/ui/widgets/food_list_view.dart';
 
 class FoodList extends StatefulWidget {
   const FoodList({super.key});
@@ -39,6 +40,7 @@ class FoodListState extends State<FoodList> {
                 style: Theme.of(context).textTheme.displaySmall,
               ),
               _categories(),
+              FoodListView(foods: AppData.foodItems),
               Padding(
                 padding: const EdgeInsets.only(top: 25, bottom: 5),
                 child: Row(
@@ -61,6 +63,7 @@ class FoodListState extends State<FoodList> {
                   ],
                 ),
               ),
+              FoodListView(foods: AppData.foodItems),
             ],
           ),
         ),
