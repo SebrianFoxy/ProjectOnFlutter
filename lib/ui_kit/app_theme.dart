@@ -5,6 +5,7 @@ class AppTheme {
   const AppTheme._();
 
   static ThemeData lightTheme = ThemeData(
+    brightness: Brightness.light,
     hintColor: Colors.black45,
       inputDecorationTheme: const InputDecorationTheme(
         border: OutlineInputBorder(borderSide: BorderSide.none),
@@ -39,6 +40,7 @@ class AppTheme {
       ));
 
   static ThemeData darkTheme = ThemeData(
+    brightness: Brightness.dark,
     hintColor: Colors.white60,
     inputDecorationTheme: const InputDecorationTheme(
       enabledBorder: OutlineInputBorder(
