@@ -1,11 +1,12 @@
 import 'package:badges/badges.dart';
 import 'package:flutter/material.dart' hide Badge;
-import 'package:JapanEatProject/ui_kit/_ui_kit.dart';
+import 'package:JapanEatProject/ui/extensions/app_extension.dart';
+import 'package:JapanEatProject/ui/widgets/food_list_view.dart';
+// ignore: depend_on_referenced_packages
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import '../../ui_kit/_ui_kit.dart';
 import '../../data/app_data.dart';
-import 'package:JapanEatProject/ui/extensions/app_extension.dart';
-import 'package:JapanEatProject/ui/widgets/food_list_view.dart';
+// import 'package:flutter_project/data/app_data.dart';
 
 class FoodList extends StatefulWidget {
   const FoodList({super.key});
@@ -27,7 +28,7 @@ class FoodListState extends State<FoodList> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                "Morning, Bohdan",
+                "Morning, Mavile",
                 style: Theme.of(context).textTheme.headlineSmall,
               ),
               Text(
@@ -63,7 +64,7 @@ class FoodListState extends State<FoodList> {
                   ],
                 ),
               ),
-              FoodListView(foods: AppData.foodItems, isReversed: true,),
+              FoodListView(foods: AppData.foodItems, isReversed: true),
             ],
           ),
         ),
@@ -154,15 +155,13 @@ class FoodListState extends State<FoodList> {
 
   void onCategoryTap(int selectedIndex) {
     //Меняем выбранную категорию
-    AppData.categories.asMap().forEach((index, category) {
-      category.isSelected = index == selectedIndex;
-    });
+    // AppData.categories.asMap().forEach((index, category) {
+    //   category.isSelected = index == selectedIndex;
+    // });
+    for (int i = 0; i < AppData.categories.length; i++) {
+      AppData.categories[i].isSelected = i == selectedIndex;
+    }
+    // AppData.categories[selectedIndex].isSelected = true;
     setState(() {});
   }
 }
-
-
-
-
-
-
