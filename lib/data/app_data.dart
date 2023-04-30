@@ -8,6 +8,18 @@ import '../ui_kit/_ui_kit.dart';
 class AppData {
   const AppData._();
 
+  static Food food = Food(
+    AppAsset.sushi12,
+    "Sushi12",
+    20.0,
+    1,
+    false,
+    dummyText,
+    5.0,
+    FoodType.tempura,
+    560,
+  );
+  
   static const dummyText =
       "Lorem Ipsum is simply dummy text of the printing and typesetting "
       "industry. Lorem Ipsum has been the industry's standard dummy text ever "
@@ -270,3 +282,5 @@ class AppData {
     ),
   ];
 }
+
+
