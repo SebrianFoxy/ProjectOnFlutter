@@ -29,9 +29,10 @@ class FoodDetailState extends State<FoodDetail> {
   PreferredSizeWidget _appBar(BuildContext context) {
     return AppBar(
       leading: IconButton(
-        onPressed: () {},
+        onPressed: () => Navigator.of(context).pop(),
         icon: const Icon(Icons.arrow_back),
       ),
+
       title: Text(
         'Food Detail Screen',
         style: TextStyle(
@@ -39,11 +40,10 @@ class FoodDetailState extends State<FoodDetail> {
                 ? Colors.black
                 : Colors.white),
       ),
-      actions: [
-        IconButton(onPressed: () {}, icon: const Icon(Icons.more_vert))
-      ],
+      actions: [IconButton(onPressed: () {}, icon: Icon(Icons.more_vert))],
     );
   }
+
 
   Widget _floatingActionButton() {
     return FloatingActionButton(
