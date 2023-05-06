@@ -40,16 +40,21 @@ class HomeScreenState extends State<HomeScreen> {
     );
   }
 
-  final List<Widget> screens = [
+  GlobalKey<CartScreenState> _cartKey = GlobalKey();
+  late final List<Widget> screens = [
     const FoodList(),
-    const CartScreen(),
+    CartScreen(
+      key: _cartKey,
+    ),
     const FavoriteScreen(),
-    const ProfileScreen()
+    const ProfileScreen(),
   ];
+
   int get currentIndex => FoodState().currentIndex;
 
   void onTabTap(int index) async {
-    await FoodState().onCategoryTap(index);
+    await FoodState().onTabTap(index);
     setState(() {});
+    if (index == 1) _cartKey.currentState?.update();
   }
 }

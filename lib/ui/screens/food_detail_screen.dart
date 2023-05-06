@@ -31,6 +31,11 @@ class FoodDetailState extends State<FoodDetail> {
     _amount--;
     setState(() {});
   }
+
+  void onAddToCart() async {
+    await FoodState().onAddToCartTap(foodId, _amount);
+  }
+
   //final food = AppData.food;
   @override
   Widget build(BuildContext context) {
@@ -71,6 +76,7 @@ class FoodDetailState extends State<FoodDetail> {
           : const Icon(AppIcon.outlinedHeart),
     );
   }
+  
 
   Widget _bottomAppBar() {
     return ClipRRect(
@@ -163,7 +169,7 @@ class FoodDetailState extends State<FoodDetail> {
                               padding:
                                   const EdgeInsets.symmetric(horizontal: 30),
                               child: ElevatedButton(
-                                onPressed: () {},
+                                onPressed: onAddToCart,
                                 child: const Text("Add to cart"),
                               ),
                             ),

@@ -28,8 +28,7 @@ class FoodListView extends StatelessWidget {
               onTap: () async {
                 print('Клик на карточку');
                 await FoodState().onFoodTap(food.id);
-                Navigator.of(context).push(
-                    MaterialPageRoute(builder: (_) => const FoodDetail()));
+                Navigator.of(context).push(MaterialPageRoute(builder: (_) => const FoodDetail()));
               },
               child: Container(
                   width: 160,
