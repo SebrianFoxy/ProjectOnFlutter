@@ -5,6 +5,7 @@ import '../../data/app_data.dart';
 import 'cart_screen.dart';
 import 'favorite_screen.dart';
 import 'food_list_screen.dart';
+import '../../states/food_state.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -46,11 +47,9 @@ class HomeScreenState extends State<HomeScreen> {
     const FavoriteScreen(),
     const ProfileScreen()
   ];
-  int currentIndex = 0;
-  void onTabTap(int index) {
-    if (currentIndex == index) return;
-    currentIndex = index;
+  int get currentIndex => FoodState().currentIndex;
+  void onTabTap(int index) async {
+    await FoodState().onTabTap(index);
     setState(() {});
   }
-
 }
