@@ -19,6 +19,18 @@ class FoodDetail extends StatefulWidget {
 class FoodDetailState extends State<FoodDetail> {
   int get foodId => FoodState().selectedFoodId;
   Food get food => FoodState().foodById(foodId);
+  late int _amount = food.quantity;
+
+  void onIncrementTap() {
+    _amount++;
+    setState(() {});
+  }
+
+  void onDecrementTap() {
+    if (_amount == 1) return;
+    _amount--;
+    setState(() {});
+  }
   //final food = AppData.food;
   @override
   Widget build(BuildContext context) {
@@ -123,14 +135,14 @@ class FoodDetailState extends State<FoodDetail> {
                                     ?.copyWith(color: LightThemeColor.accent),
                               ),
                               CounterButton(
-                                onIncrementTap: () {},
-                                onDecrementTap: () {},
+                                onIncrementTap: onIncrementTap,
+                                onDecrementTap: onDecrementTap,
                                 label: Text(
-                                  food.quantity.toString(),
+                                  _amount.toString(),
                                   style:
                                       Theme.of(context).textTheme.displayLarge,
                                 ),
-                              )
+                              ),
                             ],
                           ),
                           const SizedBox(height: 15),
