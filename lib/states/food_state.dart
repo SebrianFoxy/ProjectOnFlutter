@@ -17,6 +17,7 @@ class FoodState {
   List<FoodCategory> get categories => _categories;
 
   int _selectedCategoryIndex = 0;
+  int selectedFoodId = 0;
   int get selectedCategoryIndex => _selectedCategoryIndex;
 
   Future<void> onCategoryTap(int selectedIndex) async {
@@ -39,5 +40,8 @@ class FoodState {
   Food foodById(int id) {
     return foods[id] ?? AppData.foodItems[0];
   }
-
+  Future<void> onFoodTap(int id) async {
+    selectedFoodId = id;
+  }
+  
 }

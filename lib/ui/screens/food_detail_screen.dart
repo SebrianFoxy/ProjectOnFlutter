@@ -6,6 +6,8 @@ import '../../ui_kit/app_icon.dart';
 import '../widgets/counter_button.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import '../../states/food_state.dart';
+import '../../data/models/food.dart';
 
 class FoodDetail extends StatefulWidget {
   const FoodDetail({super.key});
@@ -15,7 +17,9 @@ class FoodDetail extends StatefulWidget {
 }
 
 class FoodDetailState extends State<FoodDetail> {
-  final food = AppData.food;
+  int get foodId => FoodState().selectedFoodId;
+  Food get food => FoodState().foodById(foodId);
+  //final food = AppData.food;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
