@@ -15,6 +15,7 @@ class FoodState {
 
   List<FoodCategory> _categories = AppData.categories;
   List<FoodCategory> get categories => _categories;
+  List<int> cartIds = [];
 
   int _selectedCategoryIndex = 0;
   int selectedFoodId = 0;
@@ -43,5 +44,5 @@ class FoodState {
   Future<void> onFoodTap(int id) async {
     selectedFoodId = id;
   }
-  
+
 }
