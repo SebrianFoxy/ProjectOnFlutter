@@ -31,7 +31,7 @@ class FoodState {
     final food = foodById(id);
     food.quantity = 1;
   }
-  
+
   Future<void> onCleanCart() async {
     for (var id in cartIds) {
       final food = foodById(id);
@@ -43,6 +43,7 @@ class FoodState {
   List<FoodCategory> _categories = AppData.categories;
   List<FoodCategory> get categories => _categories;
   List<int> cartIds = [];
+  List<int> favoriteIds = [];
 
   int _selectedCategoryIndex = 0;
   int selectedFoodId = 0;
