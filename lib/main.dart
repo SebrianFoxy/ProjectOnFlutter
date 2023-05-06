@@ -5,6 +5,7 @@ import 'package:JapanEatProject/ui/screens/cart_screen.dart';
 import 'package:JapanEatProject/ui/screens/favorite_screen.dart';
 import 'package:JapanEatProject/ui/screens/profile_screen.dart';
 import 'package:JapanEatProject/ui/screens/food_detail_screen.dart';
+import 'package:JapanEatProject/ui/screens/home_screen.dart';
 
 
 
@@ -21,7 +22,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Japan Eat',
       theme: AppTheme.lightTheme,
-      home: const FoodDetail(),
+      home: const HomeScreen(),
     );
   }
 }
