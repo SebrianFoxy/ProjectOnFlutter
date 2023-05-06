@@ -6,7 +6,8 @@ import 'package:JapanEatProject/ui/widgets/food_list_view.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import '../../ui_kit/_ui_kit.dart';
 import '../../data/app_data.dart';
-// import 'package:flutter_project/data/app_data.dart';
+import '../../data/models/food_category.dart';
+import '../../states/food_state.dart';
 
 class FoodList extends StatefulWidget {
   const FoodList({super.key});
@@ -16,7 +17,7 @@ class FoodList extends StatefulWidget {
 }
 
 class FoodListState extends State<FoodList> {
-  var categories = AppData.categories;
+  List<FoodCategory> get categories => FoodState().categories;
 
   @override
   Widget build(BuildContext context) => Scaffold(
