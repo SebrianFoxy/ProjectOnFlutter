@@ -26,6 +26,12 @@ class FoodState {
     food.quantity = food.quantity - 1;
   }
 
+  Future<void> onDeleteFoodFromCartById(int id) async {
+    cartIds.remove(id);
+    final food = foodById(id);
+    food.quantity = 1;
+  }
+
   List<FoodCategory> _categories = AppData.categories;
   List<FoodCategory> get categories => _categories;
   List<int> cartIds = [];
