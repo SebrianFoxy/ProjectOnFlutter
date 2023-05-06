@@ -8,6 +8,8 @@ import '../../ui_kit/_ui_kit.dart';
 import '../../data/app_data.dart';
 import '../../data/models/food_category.dart';
 import '../../states/food_state.dart';
+import '../extensions/app_extension.dart';
+import '../widgets/food_list_view.dart';
 
 class FoodList extends StatefulWidget {
   const FoodList({super.key});
@@ -18,6 +20,8 @@ class FoodList extends StatefulWidget {
 
 class FoodListState extends State<FoodList> {
   List<FoodCategory> get categories => FoodState().categories;
+  List<int> get foodIdsByCategory => FoodState().foodIdsByCategory;
+  List<int> get foodIds => FoodState().foodIds;
 
   @override
   Widget build(BuildContext context) => Scaffold(
@@ -29,7 +33,7 @@ class FoodListState extends State<FoodList> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                "Morning, Bohdan",
+                "Morning, Mavile",
                 style: Theme.of(context).textTheme.headlineSmall,
               ),
               Text(
@@ -42,7 +46,7 @@ class FoodListState extends State<FoodList> {
                 style: Theme.of(context).textTheme.displaySmall,
               ),
               _categories(),
-              FoodListView(foods: AppData.foodItems),
+              FoodListView(foodIds: foodIdsByCategory),
               Padding(
                 padding: const EdgeInsets.only(top: 25, bottom: 5),
                 child: Row(
@@ -65,7 +69,7 @@ class FoodListState extends State<FoodList> {
                   ],
                 ),
               ),
-              FoodListView(foods: AppData.foodItems, isReversed: true),
+              FoodListView(foodIds: foodIds, isReversed: true),
             ],
           ),
         ),
@@ -159,8 +163,8 @@ class FoodListState extends State<FoodList> {
     // AppData.categories.asMap().forEach((index, category) {
     //   category.isSelected = index == selectedIndex;
     // });
-    for (int i = 0; i < AppData.categories.length; i++) {
-      AppData.categories[i].isSelected = i == selectedIndex;
+    for (int index = 0; index < AppData.categories.length; index++) {
+      AppData.categories[index].isSelected = index == selectedIndex;
     }
     // AppData.categories[selectedIndex].isSelected = true;
     setState(() {});
