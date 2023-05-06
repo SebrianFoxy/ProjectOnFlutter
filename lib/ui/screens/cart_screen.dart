@@ -144,13 +144,15 @@ class CartScreenState extends State<CartScreen> {
     setState(() {});
   }
 
-
-
   void onDecrementTap(int id) async {
     await FoodState().onDecrementTap(id);
     setState(() {});
   }
 
+  void onCleanCart() async {
+    await FoodState().onCleanCart();
+    setState(() {});
+  }
 
   Widget _bottomAppBar() {
     return ClipRRect(
@@ -241,7 +243,7 @@ class CartScreenState extends State<CartScreen> {
                             padding: const
                             EdgeInsets.symmetric(horizontal: 30),
                             child: ElevatedButton(
-                              onPressed: () {},
+                              onPressed: onCleanCart,
                               child: const
                               Text("Checkout"),
                             ),
