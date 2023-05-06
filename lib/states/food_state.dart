@@ -39,6 +39,16 @@ class FoodState {
     }
     cartIds = [];
   }
+  
+  Future<void> onAddDeleteFavoriteTap(int id) async {
+    if (favoriteIds.contains(id)) {
+      favoriteIds.remove(id);
+    } else {
+      favoriteIds.add(id);
+    }
+    final food = foodById(id);
+    food.isFavorite = !food.isFavorite;
+  }
 
   List<FoodCategory> _categories = AppData.categories;
   List<FoodCategory> get categories => _categories;

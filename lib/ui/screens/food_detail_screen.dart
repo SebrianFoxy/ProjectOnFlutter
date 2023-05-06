@@ -35,6 +35,11 @@ class FoodDetailState extends State<FoodDetail> {
     await FoodState().onAddToCartTap(foodId, _amount);
   }
 
+  void onAddDeleteFavorite() async {
+    await FoodState().onAddDeleteFavoriteTap(foodId);
+    setState(() {});
+  }
+
   //final food = AppData.food;
   @override
   Widget build(BuildContext context) {
@@ -69,7 +74,7 @@ class FoodDetailState extends State<FoodDetail> {
     return FloatingActionButton(
       elevation: 0.0,
       backgroundColor: LightThemeColor.accent,
-      onPressed: () {},
+      onPressed: onAddDeleteFavorite,
       child: food.isFavorite
           ? const Icon(AppIcon.heart)
           : const Icon(AppIcon.outlinedHeart),
