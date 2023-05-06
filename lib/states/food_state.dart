@@ -57,5 +57,11 @@ class FoodState {
     _currentIndex = index;
   }
   
+  String calculatePricePerEachItem(Food food) {
+    double price = 0;
+    price = food.quantity * food.price;
+    return price.toString();
+  }
+
 
 }

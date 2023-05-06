@@ -42,8 +42,9 @@ class CartScreenState extends State<CartScreen> {
   Widget _cartListView() {
     return ListView.separated(
       padding: const EdgeInsets.all(30),
-      itemCount: cartFood.length,
+      itemCount: cartIds.length,
       itemBuilder: (_, index) {
+        final food = FoodState().foodById(cartIds[index]);
         return Container(
           width: double.infinity,
           padding: const EdgeInsets.all(5),
@@ -91,7 +92,7 @@ class CartScreenState extends State<CartScreen> {
                     ),
                   ),
                   Text(
-                    "\$10",
+                    "\$${FoodState().calculatePricePerEachItem(food)}",
                     style: AppTextStyle.h2Style
                         .copyWith(color: LightThemeColor.accent),
                   )
