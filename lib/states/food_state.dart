@@ -14,6 +14,18 @@ class FoodState {
   List<int> foodIds = AppData.foodItems.expand((food) => [food.id]).toList();
   List<int> foodIdsByCategory = AppData.foodItems.expand((food) => [food.id]).toList();
 
+
+  Future<void> onIncrementTap(int id) async {
+    final food = foodById(id);
+    food.quantity = food.quantity + 1;
+  }
+
+  Future<void> onDecrementTap(int id) async {
+    final food = foodById(id);
+    if (food.quantity == 1) return;
+    food.quantity = food.quantity - 1;
+  }
+
   List<FoodCategory> _categories = AppData.categories;
   List<FoodCategory> get categories => _categories;
   List<int> cartIds = [];
